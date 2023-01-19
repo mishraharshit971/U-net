@@ -1,0 +1,49 @@
+
+<!doctype html>
+
+<title>Unet based electron microscpy segmentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@785&family=Poppins&display=swap" rel="stylesheet"> 
+
+
+
+<link href="static/css/style.css" rel="stylesheet">
+<link href="static/js/bmi.js">
+
+
+	<h1>  </h1>
+	<h3> imagination | exploration | innovation | </h3>
+
+
+	<p>
+		With our tool you can upload the electron microscope image to get its sebinary segmntation mask. We used U-Net architeecture based convolution neural network model to get the job done.  
+		<br>
+		With our simple tool, you can find that out yourself in two simple steps:
+	</p>
+	<ul>
+		<li>Upload your Electron microscope scan image </li>
+		<li>Click on the Submit button</li>
+	</ul>
+	
+
+
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+        The segmented image is: {{ messages[0] }}
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+	<p>
+		<input type="file" name="file" autocomplete="off" required>
+	</p>
+    </dl>
+    <p>
+	<input type="submit" value="Submit">
+    </p>
+</form>
+
+

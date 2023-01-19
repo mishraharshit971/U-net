@@ -1,0 +1,33 @@
+{% include 'navbar.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/style.css' %}">
+<title> DEXASCAN </title>
+<center>
+<h2>What is a DEXASCAN?</h2>
+<p>
+<ul>
+    <li>Upload your DEXA scan image (dual X-Ray)</li>
+    <li>Click on the Submit button</li>
+</ul>
+
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+        Label: {{ messages[0] }}
+        Accuracy: {{ messages[1] }}
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+	<p>
+		<input type="file" name="file" autocomplete="off" required>
+	</p>
+    </dl>
+    <p>
+	<input type="submit" value="Submit">
+    </p>
+</form>
+</center>
+
+
